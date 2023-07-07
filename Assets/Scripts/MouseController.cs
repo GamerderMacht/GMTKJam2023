@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MausMovement : MonoBehaviour
+public class MouseController : Controller
 {
     [Header("Movement for Mouse with Keyboard Input")]
     
