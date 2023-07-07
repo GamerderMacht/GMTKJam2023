@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
+
+    public Vector3 movement;
+    public float speed;
+
+    public float constrainX = 10f;
+    public float constrainZ = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +21,6 @@ public class Controller : MonoBehaviour
     {
         
     }
+
+    
 }
