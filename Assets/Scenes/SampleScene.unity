@@ -141,7 +141,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046b1a3e46579524c89d14c8b4c12eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  movement: {x: 0, y: 0, z: 0}
+  speed: 15
+  constrainX: 2
+  constrainZ: 2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +706,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a8939f030483c6f4fb3ebe17480a97cf,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1396298549}
+      addedObject: {fileID: 1396298553}
   m_SourcePrefab: {fileID: 100100000, guid: a8939f030483c6f4fb3ebe17480a97cf, type: 3}
 --- !u!1 &1396298548 stripped
 GameObject:
@@ -711,7 +714,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1396298547}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1396298549
+--- !u!114 &1396298553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -720,6 +723,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1396298548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28446ac719b34674eac4d85dc124eb1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3cf954c525b69944a9db91bbb84a8a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {x: 0, y: 0, z: 0}
+  speed: 15
+  constrainX: 10
+  constrainZ: 10
