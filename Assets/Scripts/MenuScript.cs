@@ -10,7 +10,6 @@ public class MenuScript : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(GameManager.Instance);
         startButton.onClick.AddListener(() => GameManager.Instance.HandleStartGame());
         exitButton.onClick.AddListener(() => GameManager.Instance.HandleExit());
     }

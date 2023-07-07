@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-
     public Vector3 movement;
     public float speed;
 
-    public float constrainX = 10f;
-    public float constrainZ = 10f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // public float constraint_x;
+    // public float constraint_z;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Vector2 constraints;
 
-    
+    private void Awake() {
+        constraints = GameObject.FindObjectOfType<Constants>().bounds;
+    }
 }

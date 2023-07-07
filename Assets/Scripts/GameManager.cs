@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public enum GameState { MENU, GAME }
+public enum GameState { MENU, PAUSED, GAME }
 
 public class GameManager : MonoBehaviour
 {
@@ -28,7 +28,13 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) => OnScenesChanged();
+        SceneManager.sceneUnloaded += (Scene scene) => OnScenesChanged();
+
+        SceneManager.LoadScene(gameSceneName, LoadSceneMode.Single);
+        SceneManager.LoadScene(menuSceneName, LoadSceneMode.Additive);
+
+        Cursor.visible = false;
     }
 
     public void HandleExit()
@@ -41,23 +47,32 @@ public class GameManager : MonoBehaviour
 
     public void HandleStartGame()
     {
-        SceneManager.LoadScene(gameSceneName, LoadSceneMode.Single);
+        SceneManager.UnloadSceneAsync(menuSceneName);
+        gameState = GameState.GAME;
     }
 
     public void HandleToMenu()
     {
-        SceneManager.LoadScene(menuSceneName, LoadSceneMode.Single);
+        SceneManager.LoadScene(menuSceneName, LoadSceneMode.Additive);
+        gameState = GameState.MENU;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == menuSceneName) gameState = GameState.MENU;
-        else if (scene.name == gameSceneName) gameState = GameState.GAME;
+    public void OnScenesChanged()
+    {   
+        // Debug.Log("onScenesChanged");
+        // bool menu = false;
+        // for(int i = 0; i < SceneManager.sceneCount; i++){
+        //     Debug.Log(SceneManager.GetSceneAt(i).name);
+        //     if(SceneManager.GetSceneAt(i).name == menuSceneName) menu = true;
+        // }
+        // gameState = menu ? GameState.MENU : GameState.GAME; //TODO: Paused
     }
+
+
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
             switch (gameState)
             {
