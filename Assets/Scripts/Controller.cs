@@ -10,8 +10,9 @@ public class Controller : MonoBehaviour
     public float speed;
     public ControllerType type;
 
-    public float maxRotationValue;
+    // public float maxRotationValue;
     public float rotationSpeed;
+    public int rotation;
 
     // public float constraint_x;
     // public float constraint_z;

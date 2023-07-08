@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class KeyboardController : Controller
 {
+
+    // Quaternion rotationAngleAim;
+    int rotationAim;
+
     void Update()
     {
         // Debug.Log(constraints);
         MoveObject();
         RotateObject();
-        
+
     }
 
     private void MoveObject()
@@ -40,32 +44,50 @@ public class KeyboardController : Controller
         return result;
     }
 
+    void Rotate(int direction)
+    {
+        rotationAim = Mathf.Clamp(rotationAim + direction, -1, 1);
+        // rotationAngleAim = Quaternion.Euler(0f, rotation * 30f, 0f);
+    }
+
     void RotateObject()
     {
-        if (Input.GetMouseButton(0) && transform.rotation.y >= -maxRotationValue)
-        {
-            transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+        // if (Input.GetMouseButton(0) && transform.rotation.y >= -maxRotationValue)
+        // {
+        //     transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+        // }
+        // if (Input.GetMouseButton(1) && transform.rotation.y <= maxRotationValue)
+        // {
+        //     transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+        // }
 
-        }
-        if (Input.GetMouseButton(1) && transform.rotation.y <= maxRotationValue)
-        {
-            transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+        // ClampRotation();
 
-        }
+        if (Input.GetMouseButtonDown(0)) Rotate(-1);
+        if (Input.GetMouseButtonDown(1)) Rotate(1);
 
-        ClampRotation();
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            Quaternion.Euler(0f, rotationAim * 30f, 0f),
+            Time.deltaTime * rotationSpeed
+            );
 
+        float angle = transform.rotation.y * Mathf.Rad2Deg * 2f;
+        
+        if (angle <= -28f) rotation = -1;
+        else if (angle >= -1f && angle <= 1f) rotation = 0;
+        else if (angle >= 28f) rotation = 1;
     }
 
-    private void ClampRotation()
-    {
-        Vector3 keyboardEulerAngles = transform.rotation.eulerAngles;
+    // private void ClampRotation()
+    // {
+    //     Vector3 keyboardEulerAngles = transform.rotation.eulerAngles;
 
-        keyboardEulerAngles.y = (keyboardEulerAngles.y > 180) ? keyboardEulerAngles.y - 360 : keyboardEulerAngles.y;
-        keyboardEulerAngles.y = Mathf.Clamp(keyboardEulerAngles.y, -maxRotationValue, maxRotationValue);
+    //     keyboardEulerAngles.y = (keyboardEulerAngles.y > 180) ? keyboardEulerAngles.y - 360 : keyboardEulerAngles.y;
+    //     keyboardEulerAngles.y = Mathf.Clamp(keyboardEulerAngles.y, -maxRotationValue, maxRotationValue);
 
-        transform.rotation = Quaternion.Euler(keyboardEulerAngles);
-    }
+    //     transform.rotation = Quaternion.Euler(keyboardEulerAngles);
+    // }
 
 
 }
