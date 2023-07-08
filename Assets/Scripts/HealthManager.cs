@@ -10,26 +10,26 @@ public class HealthManager : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        EventBus.Instance.OnFail.AddListener(() => LoseHealth());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab)) LoseHealth();
+        // if(Input.GetKeyDown(KeyCode.Tab)) LoseHealth();
     }
 
 
     public void LoseHealth()
     {
-        EventBus.Instance.OnFail.Invoke();
         health--;
         if (health <= 0)
         {
-            GameManager.Instance.HandleToMenu();
+            EventBus.Instance.OnGameOver.Invoke();
             health = maxHealth;
             //Tisch umwerfen wenn tod
         }
     }
-    
-    
+
+
 }

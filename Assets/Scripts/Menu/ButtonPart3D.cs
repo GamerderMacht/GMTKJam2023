@@ -9,6 +9,7 @@ public class ButtonPart3D : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        isActive = false;
         Controller controller = null;
         other.transform.parent.TryGetComponent<Controller>(out controller);
         // Debug.Log(controller);

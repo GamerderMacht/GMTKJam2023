@@ -12,12 +12,12 @@ public class CanvasScript : MonoBehaviour
     private void OnEnable()
     {
         scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
-        EventBus.Instance.OnScore.AddListener((x) => UpdateCanvas());
+        // EventBus.Instance.OnScore.AddListener((x) => UpdateCanvas());
 
-        UpdateCanvas();
+        // UpdateCanvas();
     }
 
-    public void UpdateCanvas()
+    public void Update()
     {
         // Debug.Log("scored");
         scoreText.text = "Score: " + scoreSystem.score;

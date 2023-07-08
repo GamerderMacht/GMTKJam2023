@@ -26,14 +26,23 @@ public class SpawnManager : Constants
     void Start()
     {
         constraints = GameObject.FindObjectOfType<Constants>().bounds;
-        EventBus.Instance.OnPoseHit.AddListener(() => DestroyPose(true));
-        EventBus.Instance.OnFail.AddListener(() => DestroyPose(false));
+        EventBus.Instance.OnPoseHit.AddListener(() =>
+        {
+            PoseSuccess();
+            DestroyPose();
+        });
+        EventBus.Instance.OnFail.AddListener(() =>
+        {
+            DestroyPose();
+        });
+
+        EventBus.Instance.OnGameOver.AddListener(() => DestroyPose());
         game_speed = start_game_speed;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) TrySpawnPose();
+        // if (Input.GetKeyDown(KeyCode.Space)) TrySpawnPose();
 
         // if (currentPose != null) return;
         // spawnCooldown -= Time.deltaTime;
@@ -56,13 +65,18 @@ public class SpawnManager : Constants
         currentPose = newPose;
     }
 
-    void DestroyPose(bool hit)
+    void PoseSuccess()
     {
-        if (hit)
-        {
-            EventBus.Instance.OnScore.Invoke(currentPose.score);
-            game_speed *= multiply_game_speed;
-        }
+        EventBus.Instance.OnScore.Invoke(currentPose.score);
+        game_speed *= multiply_game_speed;
+    }
+
+    void DestroyPose()
+    {
+        // if (hit)
+        // {
+        // 
+        // }
         currentPose.alive = false;
         Destroy(currentPose.gameObject);
     }

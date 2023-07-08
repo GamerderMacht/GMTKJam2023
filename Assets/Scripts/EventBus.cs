@@ -12,6 +12,7 @@ public class EventBus : MonoBehaviour
     public UnityEvent OnFail = new UnityEvent();
 
     public UnityEvent OnReset = new UnityEvent();
+    public UnityEvent OnGameOver = new UnityEvent();
     
     private void Awake()
     {

@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(gameSceneName, LoadSceneMode.Single);
         SceneManager.LoadScene(menuSceneName, LoadSceneMode.Additive);
 
+        EventBus.Instance.OnGameOver.AddListener(()=> HandleGameOver());
+
         Cursor.visible = false;
     }
 
@@ -54,6 +56,11 @@ public class GameManager : MonoBehaviour
 
     public void HandleToMenu()
     {
+        SceneManager.LoadScene(menuSceneName, LoadSceneMode.Additive);
+        gameState = GameState.MENU;
+    }
+
+    public void HandleGameOver(){
         SceneManager.LoadScene(menuSceneName, LoadSceneMode.Additive);
         gameState = GameState.MENU;
     }
