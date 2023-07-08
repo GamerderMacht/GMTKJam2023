@@ -14,6 +14,7 @@ public class Pose : MonoBehaviour
     public bool alive;
     public float decay_speed;
     float decay_cd;
+    HealthManager healthManager;
 
     public void Init(Vector2 constraints, float _decay_speed)
     {
@@ -64,6 +65,8 @@ public class Pose : MonoBehaviour
         scoreText.text = score.ToString();
         if(score < 0){
             EventBus.Instance.OnFail.Invoke();
+            healthManager = GameObject.FindObjectOfType<HealthManager>();
+            healthManager.LoseHealth();
             
         }
         

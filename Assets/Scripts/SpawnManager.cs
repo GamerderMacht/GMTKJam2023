@@ -60,7 +60,8 @@ public class SpawnManager : Constants
     {
         if(hit) EventBus.Instance.OnScore.Invoke(currentPose.score);
         else {
-            //TODO: lose health
+            
+            
             Debug.Log("failed");
         }
         currentPose.alive = false;

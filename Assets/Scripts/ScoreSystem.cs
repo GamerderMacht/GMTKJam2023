@@ -12,6 +12,7 @@ public class ScoreSystem : MonoBehaviour
     private void OnEnable()
     {
         EventBus.Instance.OnScore.AddListener((amount) => AddScore(amount));
+        EventBus.Instance.OnReset.AddListener(() => score = 0);
     }
 
     // void Start()
@@ -21,11 +22,7 @@ public class ScoreSystem : MonoBehaviour
 
     void Update()
     {
-        // Debug.Log(EventBus.Instance.OnScore);
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            EventBus.Instance.OnScore.Invoke(10);
-        }
+        
     }
 
     public void AddScore(int points)

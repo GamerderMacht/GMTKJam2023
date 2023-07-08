@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(menuSceneName);
         gameState = GameState.GAME;
+        EventBus.Instance.OnReset.Invoke();
     }
 
     public void HandleToMenu()
@@ -81,4 +82,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+
+    
 }
