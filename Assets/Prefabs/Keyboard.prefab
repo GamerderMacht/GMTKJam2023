@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 6107233408854833831}
   - component: {fileID: 1507144013999530288}
   - component: {fileID: 2393149916642949435}
-  - component: {fileID: 7314635266276105504}
+  - component: {fileID: 3746540323766771581}
   m_Layer: 0
   m_Name: Mesh (Keyboard)
   m_TagString: Untagged
@@ -76,14 +76,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8808473938662504075}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1124696281259111060}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &6107233408854833831
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8808473938662504075}
-  m_Mesh: {fileID: -1496840406312870424, guid: a8939f030483c6f4fb3ebe17480a97cf, type: 3}
+  m_Mesh: {fileID: 5699838571223503980, guid: b2ab847ae7c767c41a0ee7112f0fd7a4, type: 3}
 --- !u!23 &1507144013999530288
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!65 &7314635266276105504
+--- !u!65 &3746540323766771581
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,9 +176,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15000002, y: 0.02, z: 0.4500001}
-  m_Center: {x: 0, y: 0.01, z: 0}
+  m_Size: {x: 0.4573443, y: 0.017268565, z: 0.14058061}
+  m_Center: {x: 0.000000044703484, y: 0.00863428, z: 0}
