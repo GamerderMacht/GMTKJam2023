@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {x: 0, y: 0, z: 0}
-  speed: 6
+  speed: 2
   type: 1
   maxRotationValue: 30
   rotationSpeed: 10

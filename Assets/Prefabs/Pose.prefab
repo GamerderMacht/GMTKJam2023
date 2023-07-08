@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5978460162934669509}
   m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8701637083775615668}
@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 7936571154906678158}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.66, y: 0, z: 0}
-  m_LocalScale: {x: 2.1, y: 2.1, z: 2.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8701637083775615668}
@@ -274,7 +274,7 @@ Transform:
   - {fileID: 2022308944151206618}
   - {fileID: 1446000780676200124}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4876748927140312462
 MonoBehaviour:
@@ -292,3 +292,4 @@ MonoBehaviour:
   mousePose: {fileID: 9018565113720729175}
   isHit: 0
   score: 20
+  alive: 0
