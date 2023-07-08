@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class Controller : MonoBehaviour
     public float speed;
     public ControllerType type;
 
+    public float maxRotationValue;
+    public float rotationSpeed;
+
     // public float constraint_x;
     // public float constraint_z;
 
@@ -17,4 +21,8 @@ public class Controller : MonoBehaviour
     private void Awake() {
         constraints = GameObject.FindObjectOfType<Constants>().bounds;
     }
+
+
+   
+
 }

@@ -8,6 +8,8 @@ public class KeyboardController : Controller
     {
         // Debug.Log(constraints);
         MoveObject();
+        RotateObject();
+        
     }
 
     private void MoveObject()
@@ -37,4 +39,33 @@ public class KeyboardController : Controller
 
         return result;
     }
+
+    void RotateObject()
+    {
+        if (Input.GetMouseButton(0) && transform.rotation.y >= -maxRotationValue)
+        {
+            transform.Rotate(0, -rotationSpeed * Time.deltaTime, 0);
+
+        }
+        if (Input.GetMouseButton(1) && transform.rotation.y <= maxRotationValue)
+        {
+            transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+
+        }
+
+        ClampRotation();
+
+    }
+
+    private void ClampRotation()
+    {
+        Vector3 keyboardEulerAngles = transform.rotation.eulerAngles;
+
+        keyboardEulerAngles.y = (keyboardEulerAngles.y > 180) ? keyboardEulerAngles.y - 360 : keyboardEulerAngles.y;
+        keyboardEulerAngles.y = Mathf.Clamp(keyboardEulerAngles.y, -maxRotationValue, maxRotationValue);
+
+        transform.rotation = Quaternion.Euler(keyboardEulerAngles);
+    }
+
+
 }

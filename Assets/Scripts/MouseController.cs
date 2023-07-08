@@ -7,6 +7,8 @@ public class MouseController : Controller
     void Update()
     {
         MoveObject();
+        
+
     }
 
     private void MoveObject()
@@ -20,4 +22,6 @@ public class MouseController : Controller
             Mathf.Clamp(transform.position.z, -constraints.y, constraints.y)
         );
     }
+
+   
 }
