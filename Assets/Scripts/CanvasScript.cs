@@ -5,7 +5,7 @@ using TMPro;
 
 public class CanvasScript : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TMP_Text scoreText;
 
     ScoreSystem scoreSystem;
 
