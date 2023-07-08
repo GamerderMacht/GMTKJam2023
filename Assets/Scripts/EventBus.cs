@@ -9,6 +9,7 @@ public class EventBus : MonoBehaviour
 
     public UnityEvent<int> OnScore = new UnityEvent<int>();
     public UnityEvent OnPoseHit = new UnityEvent();
+    public UnityEvent OnFail = new UnityEvent();
     
     private void Awake()
     {

@@ -1004,6 +1004,9 @@ MonoBehaviour:
   timeToSpawn: 1
   spawnCooldown: 3
   isSpawned: 0
+  start_game_speed: 1
+  multiply_game_speed: 1.05
+  game_speed: 0
   constraints: {x: 0, y: 0}
 --- !u!4 &1680879205
 Transform:

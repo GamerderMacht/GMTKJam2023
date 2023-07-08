@@ -17,13 +17,18 @@ public class SpawnManager : Constants
     [SerializeField] float spawnCooldown = 3f;
 
     public bool isSpawned;
+    public float start_game_speed;
+    public float multiply_game_speed;
+    public float game_speed;
 
     public Vector2 constraints;
 
     void Start()
     {
         constraints = GameObject.FindObjectOfType<Constants>().bounds;
-        EventBus.Instance.OnPoseHit.AddListener(() => DestroyPose());
+        EventBus.Instance.OnPoseHit.AddListener(() => DestroyPose(true));
+        EventBus.Instance.OnFail.AddListener(()=>DestroyPose(false));
+        game_speed = start_game_speed;
     }
 
     void Update()
@@ -47,15 +52,20 @@ public class SpawnManager : Constants
     {
         if (currentPose != null) return;
         Pose newPose = Instantiate(PosePrefab, Vector3.zero, Quaternion.identity, this.transform);
-        newPose.Init(constraints);
+        newPose.Init(constraints, game_speed);
         currentPose = newPose;
     }
 
-    void DestroyPose()
+    void DestroyPose(bool hit)
     {
-        EventBus.Instance.OnScore.Invoke(2);
+        if(hit) EventBus.Instance.OnScore.Invoke(currentPose.score);
+        else {
+            //TODO: lose health
+            Debug.Log("failed");
+        }
         currentPose.alive = false;
         Destroy(currentPose.gameObject);
+        game_speed *= multiply_game_speed;
     }
 
     void SpawnKeyboard()
