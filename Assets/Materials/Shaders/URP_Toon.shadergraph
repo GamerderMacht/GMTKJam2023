@@ -186,6 +186,9 @@
         },
         {
             "m_Id": "c6de36368465488abd533087c68a7fae"
+        },
+        {
+            "m_Id": "e8a5a0e43b374658a2dbf067b6c10e2b"
         }
     ],
     "m_GroupDatas": [],
@@ -1148,6 +1151,9 @@
             },
             {
                 "m_Id": "d81e774ec6c546118cca2020ceaecaba"
+            },
+            {
+                "m_Id": "e8a5a0e43b374658a2dbf067b6c10e2b"
             }
         ]
     },
@@ -4000,7 +4006,7 @@
     "m_StencilPassOperation": 0,
     "m_StencilFailOperation": 0,
     "m_StencilDepthFailOperation": 0,
-    "m_DepthWrite": false,
+    "m_DepthWrite": true,
     "m_depthWriteMode": 0,
     "m_AllowMaterialOverride": false,
     "m_DepthTestMode": 0
@@ -6195,6 +6201,40 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "e8a5a0e43b374658a2dbf067b6c10e2b",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.FullscreenEyeDepth",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "f530ef1c8ffd4684803c6e30c61ab33b"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.FullscreenEyeDepth"
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "eb5f40bd8c0d4feb83b2bc7e9f3fec30",
     "m_Id": 0,
@@ -6469,6 +6509,21 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
     "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "f530ef1c8ffd4684803c6e30c61ab33b",
+    "m_Id": 0,
+    "m_DisplayName": "Eye Depth",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "FullscreenEyeDepth",
+    "m_StageCapability": 2,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []

@@ -1236,7 +1236,7 @@ MonoBehaviour:
     type: 3}
   spawnMouseSilhouette: {fileID: 1842954944493831037, guid: 5472c641ad2a50c4991090c1edbff919,
     type: 3}
-  PosePrefab: {fileID: 4876748927140312462, guid: 8c2a563fe8c01e24d9ac6506c3059c71,
+  PosePrefab: {fileID: 5590013036775899257, guid: 8c2a563fe8c01e24d9ac6506c3059c71,
     type: 3}
   timeToSpawn: 1
   spawnCooldown: 3
