@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
 
 public class ScoreSystem : MonoBehaviour
 {
 
-    TextMeshProUGUI scoreText;
+    
 
     public int score = 0;
+
+    CanvasScript canvasScript;
     // Start is called before the first frame update
     void Start()
     {
-        scoreText = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
-        
+        canvasScript = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasScript>();
     }
 
     // Update is called once per frame
@@ -31,14 +32,9 @@ public class ScoreSystem : MonoBehaviour
     public void AddScore(int points)
     {
         score += points;
-        scoreText.text = "Score: " + score;
         
-
-
-    }
-
-    void PlayScoreAnimation()
-    {
+        canvasScript.UpdateCanvas(score);
+        canvasScript.PlayCanvasAnimation();
 
     }
 }
