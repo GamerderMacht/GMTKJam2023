@@ -70,8 +70,8 @@ public class Pose : MonoBehaviour
         if (score < 0)
         {
             EventBus.Instance.OnFail.Invoke();
-            healthManager = GameObject.FindObjectOfType<HealthManager>();
-            healthManager.LoseHealth();
+            // healthManager = GameObject.FindObjectOfType<HealthManager>();
+            // healthManager.LoseHealth();
             
         }
 

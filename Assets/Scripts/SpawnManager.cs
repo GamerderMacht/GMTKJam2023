@@ -27,7 +27,7 @@ public class SpawnManager : Constants
     {
         constraints = GameObject.FindObjectOfType<Constants>().bounds;
         EventBus.Instance.OnPoseHit.AddListener(() => DestroyPose(true));
-        EventBus.Instance.OnFail.AddListener(()=>DestroyPose(false));
+        EventBus.Instance.OnFail.AddListener(() => DestroyPose(false));
         game_speed = start_game_speed;
     }
 
@@ -58,15 +58,13 @@ public class SpawnManager : Constants
 
     void DestroyPose(bool hit)
     {
-        if(hit) EventBus.Instance.OnScore.Invoke(currentPose.score);
-        else {
-            
-            
-            Debug.Log("failed");
+        if (hit)
+        {
+            EventBus.Instance.OnScore.Invoke(currentPose.score);
+            game_speed *= multiply_game_speed;
         }
         currentPose.alive = false;
         Destroy(currentPose.gameObject);
-        game_speed *= multiply_game_speed;
     }
 
     void SpawnKeyboard()
