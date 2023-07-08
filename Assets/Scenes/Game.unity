@@ -1356,21 +1356,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mouse
       objectReference: {fileID: 0}
-    - target: {fileID: 8335373131135720029, guid: 53612b243c40e834d8946a60ca303f44,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8335373131135720029, guid: 53612b243c40e834d8946a60ca303f44,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8335373131135720029, guid: 53612b243c40e834d8946a60ca303f44,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1443,21 +1428,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Keyboard
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513739341197619951, guid: d7c1f6571ecabd5479e180ead885778f,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513739341197619951, guid: d7c1f6571ecabd5479e180ead885778f,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7513739341197619951, guid: d7c1f6571ecabd5479e180ead885778f,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -15,6 +15,7 @@ public class Pose : MonoBehaviour
     public float decay_speed;
     float decay_cd;
     HealthManager healthManager;
+    int rotation;
 
     public void Init(Vector2 constraints, float _decay_speed)
     {
@@ -24,11 +25,13 @@ public class Pose : MonoBehaviour
         float mz = Random.Range(-constraints.y, constraints.y);
 
         mousePose.transform.position = new Vector3(mx, 0f, mz);
-
         keyboardPose.transform.position = new Vector3(kx, 0f, kz);
+
         score = 100;
         decay_speed = _decay_speed > 0f ? _decay_speed : 0.01f;
         decay_cd = 1f / decay_speed;
+        rotation = Random.Range(-1, 2);
+        keyboardPose.SetRotation(rotation);
 
         alive = true;
     }
@@ -59,16 +62,18 @@ public class Pose : MonoBehaviour
         }
     }
 
-    void DecreaseScore(){
+    void DecreaseScore()
+    {
 
         score--;
         scoreText.text = score.ToString();
-        if(score < 0){
+        if (score < 0)
+        {
             EventBus.Instance.OnFail.Invoke();
             healthManager = GameObject.FindObjectOfType<HealthManager>();
             healthManager.LoseHealth();
             
         }
-        
+
     }
 }
