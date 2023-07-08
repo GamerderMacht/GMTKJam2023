@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 7513739341197619951}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8808024465836390487
 MonoBehaviour:
@@ -48,8 +48,8 @@ MonoBehaviour:
   movement: {x: 0, y: 0, z: 0}
   speed: 15
   type: 0
-  maxRotationValue: 0
-  rotationSpeed: 0
+  maxRotationValue: 30
+  rotationSpeed: 150
   constraints: {x: 0, y: 0}
 --- !u!1 &8808473938662504075
 GameObject:
@@ -178,7 +178,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

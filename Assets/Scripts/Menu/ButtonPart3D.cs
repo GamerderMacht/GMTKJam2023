@@ -11,7 +11,7 @@ public class ButtonPart3D : MonoBehaviour
     {
         Controller controller = null;
         other.transform.parent.TryGetComponent<Controller>(out controller);
-        Debug.Log(controller);
+        // Debug.Log(controller);
         if (controller == null) { isActive = false; return; }
         if (type != controller.type) { isActive = false; return; }
 

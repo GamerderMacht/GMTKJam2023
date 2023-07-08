@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnManager : Constants
 {
@@ -8,29 +9,53 @@ public class SpawnManager : Constants
     //Spawn das Feld
     public GameObject spawnKeyboardSilhouette;
     public GameObject spawnMouseSilhouette;
+    public Pose PosePrefab;
+
+    Pose currentPose = null;
 
     [SerializeField] float timeToSpawn = 1f;
     [SerializeField] float spawnCooldown = 3f;
 
+    public bool isSpawned;
 
     public Vector2 constraints;
 
-    // Start is called before the first frame update
     void Start()
     {
         constraints = GameObject.FindObjectOfType<Constants>().bounds;
+        EventBus.Instance.OnPoseHit.AddListener(() => DestroyPose());
     }
 
-    // Update is called once per frame
     void Update()
     {
-        spawnCooldown -= Time.deltaTime;
-        if (spawnCooldown <= 0)
-        {
-            SpawnKeyboard();
-            SpawnMouse();
-            spawnCooldown = timeToSpawn;
-        }
+        if (Input.GetKeyDown(KeyCode.Space)) TrySpawnPose();
+
+        // if (currentPose != null) return;
+        // spawnCooldown -= Time.deltaTime;
+        // if (spawnCooldown <= 0)
+        // {
+        //     // SpawnKeyboard();
+        //     // SpawnMouse();
+        //     // SpawnPose();
+        //     spawnCooldown = timeToSpawn;
+        // }
+        if (GameManager.Instance.gameState == GameState.GAME)
+            TrySpawnPose();
+    }
+
+    void TrySpawnPose()
+    {
+        if (currentPose != null) return;
+        Pose newPose = Instantiate(PosePrefab, Vector3.zero, Quaternion.identity, this.transform);
+        newPose.Init(constraints);
+        currentPose = newPose;
+    }
+
+    void DestroyPose()
+    {
+        EventBus.Instance.OnScore.Invoke(2);
+        currentPose.alive = false;
+        Destroy(currentPose.gameObject);
     }
 
     void SpawnKeyboard()
@@ -41,11 +66,12 @@ public class SpawnManager : Constants
         Instantiate(spawnKeyboardSilhouette, new Vector3(x, 0, z),
         Quaternion.Euler(-90, Random.Range(-30.0f, 30.0f), 180), this.transform);
     }
+
     void SpawnMouse()
     {
         float x = Random.Range(-constraints.x, constraints.x);
         float z = Random.Range(-constraints.y, constraints.y);
 
-        Instantiate(spawnMouseSilhouette, new Vector3(x, 0, z), Quaternion.Euler(0,90,0), this.transform);
+        Instantiate(spawnMouseSilhouette, new Vector3(x, 0, z), Quaternion.Euler(0, 90, 0), this.transform);
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 613497638938696455}
   - component: {fileID: 1363830497458165944}
   m_Layer: 0
-  m_Name: mouse_placeholder
+  m_Name: Pose_Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
