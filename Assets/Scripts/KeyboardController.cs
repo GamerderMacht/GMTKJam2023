@@ -74,9 +74,10 @@ public class KeyboardController : Controller
 
         float angle = transform.rotation.y * Mathf.Rad2Deg * 2f;
         
-        if (angle <= -28f) rotation = -1;
-        else if (angle >= -1f && angle <= 1f) rotation = 0;
-        else if (angle >= 28f) rotation = 1;
+        if (angle <= -29f) rotation = -1;
+        else if (angle >= -.5f && angle <= .5f) rotation = 0;
+        else if (angle >= 29f) rotation = 1;
+        else rotation = -2; // no rotation
     }
 
     // private void ClampRotation()
