@@ -8,10 +8,13 @@ public class VfxScript : MonoBehaviour
 
     public VisualEffect vfx;
 
+
+    private void Awake() {
+        Destroy(this.gameObject, 1f);
+    }
+
     public void Play(bool success)
     {
-        Debug.Log("success "+success);
-        vfx.SetBool("success", success);
-        vfx.Play();
+        vfx.SendEvent(success? "OnSuccess": "OnFail");
     }
 }
