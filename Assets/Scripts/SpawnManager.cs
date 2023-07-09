@@ -22,18 +22,22 @@ public class SpawnManager : Constants
     public float game_speed;
 
     public Vector2 constraints;
+    [SerializeField] AudioManager audioManager;
+    
 
     void Start()
     {
         constraints = GameObject.FindObjectOfType<Constants>().bounds;
         EventBus.Instance.OnPoseHit.AddListener(() =>
         {
+            audioManager.PlayPoseHitSound();
             currentPose.PlayVFX(true);
             PoseSuccess();
             TryDestroyPose();
         });
         EventBus.Instance.OnFail.AddListener(() =>
         {
+            audioManager.PlayPoseFailSound();
             currentPose.PlayVFX(false);
             TryDestroyPose();
         });
@@ -74,6 +78,7 @@ public class SpawnManager : Constants
         Pose newPose = Instantiate(PosePrefab, Vector3.zero, Quaternion.identity, this.transform);
         newPose.Init(constraints, game_speed);
         currentPose = newPose;
+        audioManager.PlaySpawnSound();
     }
 
     void PoseSuccess()
@@ -114,4 +119,6 @@ public class SpawnManager : Constants
 
         Instantiate(spawnMouseSilhouette, new Vector3(x, 0, z), Quaternion.Euler(0, 90, 0), this.transform);
     }
+
+    
 }
