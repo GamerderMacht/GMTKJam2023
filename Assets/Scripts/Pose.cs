@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.VFX;
 
 public class Pose : MonoBehaviour
 {
     public PosePart keyboardPose;
     public PosePart mousePose;
     public TMP_Text scoreText;
+    public VfxScript vfx_prefab;
 
     public bool isHit;
     public int score;
@@ -34,6 +36,14 @@ public class Pose : MonoBehaviour
         keyboardPose.SetRotation(rotation);
 
         alive = true;
+    }
+
+    public void PlayVFX(bool success){
+
+        VfxScript vfx_k = Instantiate(vfx_prefab, keyboardPose.transform.position, Quaternion.identity);
+        vfx_k.Play(success);
+        VfxScript vfx_m = Instantiate(vfx_prefab, mousePose.transform.position, Quaternion.identity);
+        vfx_m.Play(success);
     }
 
     private void Update()

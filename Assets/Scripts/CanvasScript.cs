@@ -20,7 +20,7 @@ public class CanvasScript : MonoBehaviour
     public void Update()
     {
         // Debug.Log("scored");
-        scoreText.text = "Score: " + scoreSystem.score;
+        scoreText.text = "Score\n" + scoreSystem.score;
     }
 
 

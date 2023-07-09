@@ -28,11 +28,13 @@ public class SpawnManager : Constants
         constraints = GameObject.FindObjectOfType<Constants>().bounds;
         EventBus.Instance.OnPoseHit.AddListener(() =>
         {
+            currentPose.PlayVFX(true);
             PoseSuccess();
             TryDestroyPose();
         });
         EventBus.Instance.OnFail.AddListener(() =>
         {
+            currentPose.PlayVFX(false);
             TryDestroyPose();
         });
 
@@ -40,7 +42,7 @@ public class SpawnManager : Constants
         EventBus.Instance.OnReset.AddListener(() => TryDestroyPose());
         EventBus.Instance.OnReset.AddListener(() => Reset());
         EventBus.Instance.OnSoftReset.AddListener(()=> TryDestroyPose());
-        
+
         Reset();
     }
 

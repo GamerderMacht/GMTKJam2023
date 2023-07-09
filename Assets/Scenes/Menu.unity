@@ -776,6 +776,7 @@ MonoBehaviour:
   fixed_rotation: {x: 0, y: 0, z: 0}
   type: 1
   isHit: 0
+  onCollectVFX: {fileID: 0}
   threshold: 0.1
   rotation: 0
 --- !u!65 &714854024
@@ -1582,6 +1583,7 @@ MonoBehaviour:
   fixed_rotation: {x: 0, y: 0, z: 0}
   type: 0
   isHit: 0
+  onCollectVFX: {fileID: 0}
   threshold: 0.1
   rotation: 0
 --- !u!65 &1867466414
@@ -2013,6 +2015,7 @@ MonoBehaviour:
   fixed_rotation: {x: 0, y: 0, z: 0}
   type: 0
   isHit: 0
+  onCollectVFX: {fileID: 0}
   threshold: 0.1
   rotation: 1
 --- !u!114 &1107482258743524201
@@ -2044,6 +2047,7 @@ MonoBehaviour:
   fixed_rotation: {x: 0, y: 0, z: 0}
   type: 1
   isHit: 0
+  onCollectVFX: {fileID: 0}
   threshold: 0.1
   rotation: 0
 --- !u!23 &1530967266428428785

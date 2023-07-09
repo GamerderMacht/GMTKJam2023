@@ -594,6 +594,8 @@ MonoBehaviour:
   keyboardPose: {fileID: 6546114489468085067}
   mousePose: {fileID: 209637511653979173}
   scoreText: {fileID: 6914229779342270193}
+  vfx_prefab: {fileID: -8003348413994658244, guid: 9576992a44c7df14a8fea3047cc574a8,
+    type: 3}
   isHit: 0
   score: 20
   alive: 0
