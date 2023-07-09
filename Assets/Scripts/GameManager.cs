@@ -10,6 +10,7 @@ public enum GameState { MENU, PAUSED, GAME }
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    // public EventBus eventBus;
 
     public GameState gameState /*{ get; private set; }*/ = GameState.MENU;
 
@@ -50,19 +51,22 @@ public class GameManager : MonoBehaviour
     public void HandleStartGame()
     {
         SceneManager.UnloadSceneAsync(menuSceneName);
+        // SceneManager.LoadScene(gameSceneName, LoadSceneMode.Single);
         gameState = GameState.GAME;
         EventBus.Instance.OnReset.Invoke();
     }
 
     public void HandleToMenu()
     {
+        // SceneManager.LoadScene(gameSceneName, LoadSceneMode.Single);
         SceneManager.LoadScene(menuSceneName, LoadSceneMode.Additive);
+        EventBus.Instance.OnSoftReset.Invoke();
         gameState = GameState.MENU;
+        // EventBus.Instance.OnReset.Invoke();
     }
 
     public void HandleGameOver(){
-        SceneManager.LoadScene(menuSceneName, LoadSceneMode.Additive);
-        gameState = GameState.MENU;
+        HandleToMenu();
     }
 
     public void OnScenesChanged()

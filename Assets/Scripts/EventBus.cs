@@ -7,12 +7,14 @@ public class EventBus : MonoBehaviour
 {
     public static EventBus Instance;
 
+
     public UnityEvent<int> OnScore = new UnityEvent<int>();
     public UnityEvent OnPoseHit = new UnityEvent();
     public UnityEvent OnFail = new UnityEvent();
 
     public UnityEvent OnReset = new UnityEvent();
     public UnityEvent OnGameOver = new UnityEvent();
+    public UnityEvent OnSoftReset = new UnityEvent();
     
     private void Awake()
     {
