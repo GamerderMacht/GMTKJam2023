@@ -6,29 +6,33 @@ using TMPro;
 
 public class VolumeSlider : MonoBehaviour
 {
-    float audioVolume = 0.5f;
-    [SerializeField] AudioMixer myAudioMixer;
-    [SerializeField] TMP_Text volumeText;
+    bool isMuted = false;
 
-
-    public void SetVolume(float sliderValue)
-    {
-        myAudioMixer.SetFloat("MasterVolume", Mathf.Clamp(Mathf.Log10(sliderValue) * 20, 0.0001f, 1f));
-        myAudioMixer.GetFloat("MasterVolume", out audioVolume);
-        volumeText.text = "Volume: " + Mathf.RoundToInt(sliderValue * 100) + "%";
-        Debug.Log(sliderValue);
-    }
-
+    
+    public GameObject muteObject;
+    public GameObject unmuteObject;
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.M)) MuteOrUnmute();
+    }
+
+    private void MuteOrUnmute()
+    {
+        isMuted = !isMuted;
+        AudioListener.volume = isMuted ? 0 : 1;
+
+        switch (isMuted)
         {
-            Debug.Log("Q");
-            SetVolume(audioVolume -= 0.01f);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SetVolume(audioVolume += 0.01f);
+            case true:
+                muteObject.SetActive(true);
+                unmuteObject.SetActive(false);
+
+                break;
+            case false:
+                muteObject.SetActive(false);
+                unmuteObject.SetActive(true);
+
+                break;
         }
     }
 }
