@@ -26,6 +26,7 @@ public class HealthManager : MonoBehaviour
         if (health <= 0)
         {
             EventBus.Instance.OnGameOver.Invoke();
+            GameManager.Instance.HandleToMenu();
             health = maxHealth;
             //Tisch umwerfen wenn tod
         }

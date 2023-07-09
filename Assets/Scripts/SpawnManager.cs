@@ -29,14 +29,23 @@ public class SpawnManager : Constants
         EventBus.Instance.OnPoseHit.AddListener(() =>
         {
             PoseSuccess();
-            DestroyPose();
+            TryDestroyPose();
         });
         EventBus.Instance.OnFail.AddListener(() =>
         {
-            DestroyPose();
+            TryDestroyPose();
         });
 
-        EventBus.Instance.OnGameOver.AddListener(() => DestroyPose());
+        EventBus.Instance.OnGameOver.AddListener(() => TryDestroyPose());
+        EventBus.Instance.OnReset.AddListener(() => TryDestroyPose());
+        EventBus.Instance.OnReset.AddListener(() => Reset());
+        EventBus.Instance.OnSoftReset.AddListener(()=> TryDestroyPose());
+        
+        Reset();
+    }
+
+    void Reset(){
+
         game_speed = start_game_speed;
     }
 
@@ -71,14 +80,20 @@ public class SpawnManager : Constants
         game_speed *= multiply_game_speed;
     }
 
-    void DestroyPose()
+    void TryDestroyPose()
     {
         // if (hit)
         // {
         // 
         // }
-        currentPose.alive = false;
-        Destroy(currentPose.gameObject);
+        try{
+
+            currentPose.alive = false;
+            Destroy(currentPose.gameObject);
+        }
+        catch{
+
+        }
     }
 
     void SpawnKeyboard()
